@@ -10,7 +10,7 @@
         foreach($mainmenu_array as $mainmenu_list){
       ?>
         <a title="<?php echo($mainmenu_list['mainmenu_icon'])?>" href="<?php echo($mainmenu_list['mainmenu_link'])?>" 
-        class="header-box <?php if($menu == $mainmenu_list['mainmenu_icon']) { ?>header-curr<?php } ?> content-center desktop-only">
+        class="header-box <?php if($menu == $mainmenu_list['mainmenu_icon']) { ?>header-curr<?php } ?> content-center">
           <div class="header-label"><?php echo($mainmenu_list['mainmenu_icon'])?></div>
         </a>
       <?php } ?>

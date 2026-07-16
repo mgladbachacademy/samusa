@@ -64,11 +64,9 @@ textarea.form-field{min-height:144px;}
 
 
 header{position:sticky; position:-webkit-sticky; z-index:calc(var(--max-zindex) - 10000); top:0; left:0; width:100%;}
-header .section-container{padding:0; display:flex; justify-content:space-between;}
+header .section-container{padding:0;}
 .header-left, .header-right{display:flex;}
 .header-box{padding:var(--size-4); font-weight:normal; text-transform:capitalize;}
-.header-left > .header-box:first-child{padding-left:var(--size-5);}
-.header-right > .header-box:last-child{padding-right:var(--size-5);}
 
 .header-box svg{width:auto; height:24px;}
 .header-logo svg{height:24px;}
@@ -133,6 +131,12 @@ a.cover-button{margin-top:var(--size-1); margin-right:var(--size-1); padding-lef
   
   .desktop-only, .share-box-static{display:none !important; visibility:hidden; content-visibility:hidden;}
   .desktop-only iframe[loading=lazy]{content-visibility:hidden !important;}
+
+
+
+  .header-logo{padding-bottom:var(--size-1);}
+  .header-right{display:grid; grid-template-columns:repeat(auto-fit, minmax(20px,1fr));}
+  .header-right .header-box{padding:var(--size-3) 0; font-size:0.875rem;}
 
 
 
