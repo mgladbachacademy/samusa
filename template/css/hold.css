@@ -84,10 +84,10 @@ header{background-color:var(--bg-2); box-shadow:rgba(99, 99, 99, 0.2) 0px 2px 8p
 .section-cover, .section-cover .section-title{color:var(--bg-2);}
 .section-cover .section-bg{background-repeat:no-repeat; background-size:cover; background-color:var(--color-2);}
 .section-cover .section-bg img{transition:none;}
-.section-cover .section-overlay{background-color:rgb(0 0 0 / 48%);}
 .section-cover .section-gradient{background-image:linear-gradient(to bottom, transparent, var(--color-2));}
 
 a.cover-button{color:var(--bg-2); border-color:var(--bg-2);}
+.section-cover-home .section-overlay{background-color:rgb(0 0 0 / 48%);}
 
 
 

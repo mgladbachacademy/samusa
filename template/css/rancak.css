@@ -105,8 +105,8 @@ a.cover-button{margin-top:var(--size-1); margin-right:var(--size-1); padding-lef
 
 .section-tipeA .section-container{display:grid; grid-gap:var(--size-5);}
 .tipeA-header{display:grid; grid-gap:var(--size-1);}
-.tipeA-img{--aspect-ratio:4/5; display:flex; justify-content:center;}
-.tipeA-img-frame{width:100%; max-width:360px;}
+.tipeA-img{--aspect-ratio:4/3; display:flex; align-items:flex-start; justify-content:center;}
+.tipeA-img-frame{width:100%; max-width:440px;}
 .tipeA-content, .tipeA-info{line-height:160%; display:grid; grid-gap:var(--size-4); grid-auto-rows:min-content;}
 .tipeA-subtitle{font-size:0.875rem;}
 .tipeA-title{font-size:1.75rem; font-weight:bold;}

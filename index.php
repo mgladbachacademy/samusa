@@ -11,7 +11,7 @@
   
   
   
-<section class="section-default section-cover content-center">
+<section class="section-default section-cover section-cover-home content-center">
   <picture class="section-bg img-frame">
     <source media="(min-width:1280px)" data-srcset="template/img/cover-home-desktop-big.jpg">
     <source media="(min-width:640px)" data-srcset="template/img/cover-home-desktop.jpg">
@@ -66,7 +66,7 @@
   <div class="section-container">
     <div class="tipeA-img">
       <picture class="tipeA-img-frame img-frame thumb-loading">
-        <img alt="Meet SAMUSA Consultant" class="lazyload" data-original="template/img/cover-home-mobile-small.jpg"/>
+        <img alt="Meet SAMUSA Consultant" class="lazyload" data-original="template/img/meet-samusa-consultant.jpg"/>
       </picture>
     </div>
     <div class="tipeA-content">

@@ -1,5 +1,5 @@
 <?php 
-  $menu='home';
+  $menu='about';
   $site_title='default';
   require ('template/inc/base.php')
 ?>
@@ -13,10 +13,10 @@
   
 <section class="section-default section-cover content-center">
   <picture class="section-bg img-frame">
-    <source media="(min-width:1280px)" data-srcset="template/img/cover-home-desktop-big.jpg">
-    <source media="(min-width:640px)" data-srcset="template/img/cover-home-desktop.jpg">
-    <source media="(min-width:414px)" data-srcset="template/img/cover-home-mobile.jpg">
-    <img alt="Cover Home" class="lazyload" data-original="template/img/cover-home-mobile-small.jpg"/>
+    <source media="(min-width:1280px)" data-srcset="template/img/cover-about-desktop-big.jpg">
+    <source media="(min-width:640px)" data-srcset="template/img/cover-about-desktop.jpg">
+    <source media="(min-width:414px)" data-srcset="template/img/cover-about-mobile.jpg">
+    <img alt="Cover Home" class="lazyload" data-original="template/img/cover-about-mobile-small.jpg"/>
   </picture>
   <div class="section-overlay"></div>
   <div class="section-gradient"></div>
@@ -39,7 +39,7 @@
   <div class="section-container">
     <div class="tipeA-img">
       <picture class="tipeA-img-frame img-frame thumb-loading">
-        <img alt="The Law is hard, but it is the Law" class="lazyload" data-original="template/img/cover-home-mobile-small.jpg"/>
+        <img alt="The Law is hard, but it is the Law" class="lazyload" data-original="template/img/about.jpg"/>
       </picture>
     </div>
     <div class="tipeA-content">

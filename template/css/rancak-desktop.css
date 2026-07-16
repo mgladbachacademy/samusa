@@ -35,7 +35,7 @@
 
 
 
-.section-tipeA .section-container{grid-template-columns:repeat(2,1fr);}
+.section-tipeA .section-container{grid-template-columns:repeat(2,1fr); grid-auto-rows:min-content;}
 .section-tipeA1 .tipeA-img, .section-tipeA1 .tipeA-content{grid-row:1/2;}
 .section-tipeA1 .tipeA-content{grid-column:1/2;}
 
