@@ -71,7 +71,6 @@
     </div>
     <div class="tipeA-content">
       <div class="tipeA-header">
-        <div class="tipeA-subtitle">Meet SAMUSA Consultant</div>
         <h2 class="text-title tipeA-title">Meet SAMUSA Consultant</h2>
       </div>
       <div class="tipeA-info">
