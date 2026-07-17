@@ -78,27 +78,29 @@ $("body,html").bind("touchstart touchmove scroll mousedown DOMMouseScroll mousew
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "NGO",
-  "name": "Grassroots Football Indonesia Foundation",
-  "url": "https://gfifoundation.org/",
-  "logo": "https://gfifoundation.org/template/img/favicon.ico",
-  "image": "https://gfifoundation.org/template/img/cover.jpg",
-  "description": "Developing Future Generations Through Football, Education, and Social Impact.",
+  "@type": "Business",
+  "name": "Samusa Global Consultant",
+  "url": "https://samusaconsultant.id/",
+  "logo": "https://samusaconsultant.id/template/img/favicon.ico",
+  "image": "https://samusaconsultant.id/template/img/cover.jpg",
+  "description": "Foreign investors interested in establishing a Foreign Investment Company (PT PMA) in Indonesia need to be aware and understand relevant aspects of PT PMA. Therefore, this article will explain what needs to be considered and the benefits of establishing a PT PMA. Things to Consider When Establishing a PT PMA Identify The Company's Business Sector Before.",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Ruko BSD Junction Blok B. 31, JL. Pahlawan Seribu, Serpong",
-    "addressLocality": "Tangerang Selatan",
-    "addressRegion": "Banten",
-    "postalCode": "15322",
+    "streetAddress": "Prosperity Tower, 8th Floor",
+    "addressLocality": "South Jakarta",
+    "addressRegion": "Jakarta",
+    "postalCode": "12190",
     "addressCountry": "ID"
   },
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+62-811-1889-8205",
+    "telephone": "+62-811-9003-405",
     "contactType": "customer service"
   }
 }
 </script>
 </head>
 <body>
-<h1 class="hide"><?php echo $sitename; ?> - <?php echo $menu; ?></h1>
+<?php if($menu == 'blog-detail') { ?>
+  <h1 class="hide"><?php echo $sitename; ?> - <?php echo $menu; ?></h1>
+<?php } ?>

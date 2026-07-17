@@ -111,6 +111,12 @@ a.cover-button{color:var(--bg-2); border-color:var(--bg-2);}
 
 
 
+.sda-title{color:var(--color-2);}
+.sda-content{color:var(--color-2);}
+.related-article-content .section-tipeB .section-container{padding:0;}
+
+
+
 .contact-link{color:var(--color-2);}
 .contact-link:hover{color:var(--color-4);}
 .contact-address{fill:var(--color-2);}

@@ -1,6 +1,5 @@
 <?php 
   $menu='home';
-  $site_title='default';
   require ('template/inc/base.php')
 ?>
 <?php require ($_SERVER['SMS'].'template/inc/meta.php')?>
