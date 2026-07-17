@@ -11,7 +11,7 @@
   
   
   
-<section class="section-default section-cover content-center">
+<section class="section-default section-cover section-cover-small content-center">
   <picture class="section-bg img-frame">
     <source media="(min-width:1280px)" data-srcset="template/img/cover-about-desktop-big.jpg">
     <source media="(min-width:640px)" data-srcset="template/img/cover-about-desktop.jpg">
