@@ -35,28 +35,31 @@
   <div class="section-container">
 
     <?php 
-      $services_array = array();
-      $services_array[]=array(
-        'services_image'=>'1',
-        'services_title'=>'Law Firm Services',
-        'services_desc'=>'
-          <p>Comprehensive legal consultation and representation & expertise in various legal fields to protect your interests :</p>
-        ',
+      $blog_array = array();
+      $blog_array[]=array(
+        'blog_image'=>'1',
+        'blog_title'=>'Law Firm Services',
+        'blog_desc'=>'Comprehensive legal consultation and representation & expertise in various legal fields to protect your interests',
+        'blog_link'=>'blog-detail.php',
       );
-      foreach($services_array as $services_list){
+      foreach($blog_array as $blog_list){
     ?>
     <?php for ($i=1; $i<=6; $i++){ ?>
-      <div class="tipeB-box">
+      <a title="<?php echo($blog_list['blog_title'])?>" class="tipeB-box article-box" href="<?php echo($blog_list['blog_link'])?>">
         <div class="tipeB-img">
           <picture class="tipeB-img-frame img-frame thumb-loading">
-            <img alt="<?php echo($services_list['services_title'])?>" class="lazyload" data-original="template/img/services-<?php echo($services_list['services_image'])?>.jpg"/>
+            <img alt="<?php echo($blog_list['blog_title'])?>" class="lazyload" data-original="template/img/services-<?php echo($blog_list['blog_image'])?>.jpg"/>
           </picture>
         </div>
         <div class="tipeB-content">
-          <h2 class="text-title tipeB-title"><?php echo($services_list['services_title'])?></h2>
-          <?php echo($services_list['services_desc'])?>
+          <h2 class="text-title tipeB-title"><?php echo($blog_list['blog_title'])?></h2>
+          <div class="tipeB-desc"><?php echo($blog_list['blog_desc'])?></div>
+          <div class="tipeB-more">
+            <span>Read More</span>
+            <?php require ($_SERVER['SMS'].'template/img/icon/more.svg')?>
+          </div>
         </div>
-      </div>
+      </a>
     <?php } ?>
     <?php } ?>
 

@@ -26,7 +26,7 @@
   --rounded-1:8px;
   --rounded-2:16px;
   --rounded-3:24px;
-  --hover-opacity:34%;
+  --hover-opacity:64%;
   --transition-default:all 0.34s;
   --shadow-default:2px 5px 13px rgb(0 0 0 / 8%);
   --shadow-neumorp:-2px -2px 4px rgba(255,255,255,.2), 2px 2px 12px rgba(0,0,0,.2);
@@ -101,6 +101,13 @@ a.cover-button{color:var(--bg-2); border-color:var(--bg-2);}
 
 
 .tipeB-title{color:var(--color-2);}
+
+.article-box, .article-box .tipeB-more{color:var(--color-4);}
+.article-box:hover, .article-box:hover .tipeB-more{color:var(--color-2);}
+.article-box .tipeB-img, .article-box .tipeB-more{transition:var(--transition-default);}
+.article-box:hover .tipeB-img{opacity:var(--hover-opacity);}
+.article-box .tipeB-title{color:inherit;}
+.article-box .tipeB-desc{color:var(--color-1);}
 
 
 
