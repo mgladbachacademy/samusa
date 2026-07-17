@@ -100,6 +100,19 @@ a.cover-button{color:var(--bg-2); border-color:var(--bg-2);}
 
 
 
+.tipeB-title{color:var(--color-2);}
+
+
+
+.contact-link{color:var(--color-2);}
+.contact-link:hover{color:var(--color-4);}
+.contact-address{fill:var(--color-2);}
+.contact-email{fill:var(--color-ml);}
+.contact-phone{fill:var(--color-wa);}
+.contact-instagram{fill:var(--color-ig);}
+
+
+
 footer{background-color:var(--color-2);}
 footer .section-container{padding:var(--size-4); text-align:center; color:var(--bg-2); 
 font-size:0.75rem; text-wrap:balance; line-height:150%;}
