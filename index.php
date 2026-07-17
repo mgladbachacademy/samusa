@@ -83,6 +83,42 @@
     </div>
   </div>
 </section>
+  
+  
+  
+  
+<!--  
+<section class="section-default section-partner content-center">
+  <div class="section-container">
+
+    <div class="partner-content">
+      <div class="section-title">
+        <h2 class="text-title section-title-primary">Our Partner</h2>
+      </div>
+      <div class="partner-list">
+        <?php 
+          $partner_array = array();
+          $partner_array[]=array(
+            'partner_image'=>'mgladbach.webp',
+            'partner_label'=>'Borussia Monchengladbach Academy Indonesia',
+            'partner_link'=>'https://mgladbachacademy.id/',
+          );
+          foreach($partner_array as $partner_list){
+        ?>
+        <?php for ($i=1; $i<=10; $i++){ ?>
+          <a title="<?php echo($partner_list['partner_label'])?>" class="partner-box" href="<?php echo($partner_list['partner_link'])?>" target="_blank">
+            <picture class="partner-img-frame img-frame thumb-loading">
+              <img alt="<?php echo($partner_list['partner_label'])?>" class="lazyload" data-original="template/img/partner-<?php echo($partner_list['partner_image'])?>"/>
+            </picture>
+          </a>
+        <?php } ?>
+        <?php } ?>
+      </div>
+    </div>
+
+  </div>
+</section>
+-->
 
 
 

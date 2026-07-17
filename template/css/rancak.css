@@ -77,6 +77,9 @@ section{position:relative; z-index:1; padding:calc(var(--size-4) * 4) 0;}
 .rancak-foundation{min-height:calc(100vh - var(--header-height));}
 .section-bg{position:absolute; z-index:1; top:0; left:0; width:100%; height:100%;}
 .section-container{position:relative; z-index:10000; width:100%; max-width:var(--width-max); padding:0 var(--size-5);}
+.section-title{margin-bottom:var(--size-4); display:grid; grid-gap:var(--size-2);}
+.section-title, .section-title *{text-align:center;}
+.section-title-primary{font-size:2.5rem; font-weight:bold;}
 
 
 
@@ -126,6 +129,12 @@ a.cover-button{margin-top:var(--size-1); margin-right:var(--size-1); padding-lef
 .contact-info{display:grid;}
 .contact-list{display:grid; grid-gap:var(--size-3); grid-template-columns:24px 1fr;}
 .contact-list svg{width:100%; height:auto; position:relative; top:2px;}
+
+
+
+.partner-list{display:flex; flex-wrap:wrap; justify-content:center;}
+.partner-box{margin:var(--size-4);}
+.partner-img-frame img{position:static; width:auto; height:80px;}
 
 
 
