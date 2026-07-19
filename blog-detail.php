@@ -24,7 +24,7 @@
     <picture class="sda-img img-frame thumb-loading">
       <source media="(min-width:1280px)" data-srcset="template/img/cover-home-desktop-big.jpg">
       <source media="(min-width:640px)" data-srcset="template/img/cover-home-desktop.jpg">
-      <source media="(min-width:414px)" data-srcset="template/img/cover-home-mobile.jpg">
+      <source media="(min-width:415px)" data-srcset="template/img/cover-home-mobile.jpg">
       <img alt="Understanding The Establishment of PT PMA in Indonesia" class="lazyload" data-original="template/img/cover-home-mobile-small.jpg"/>
     </picture>
 

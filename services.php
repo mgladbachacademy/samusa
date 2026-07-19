@@ -14,7 +14,7 @@
   <picture class="section-bg img-frame">
     <source media="(min-width:1280px)" data-srcset="template/img/cover-services-desktop-big.jpg">
     <source media="(min-width:640px)" data-srcset="template/img/cover-services-desktop.jpg">
-    <source media="(min-width:414px)" data-srcset="template/img/cover-services-mobile.jpg">
+    <source media="(min-width:415px)" data-srcset="template/img/cover-services-mobile.jpg">
     <img alt="Cover Home" class="lazyload" data-original="template/img/cover-services-mobile-small.jpg"/>
   </picture>
   <div class="section-overlay"></div>
