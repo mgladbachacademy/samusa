@@ -1,0 +1,77 @@
+:root, :before, :after{
+  
+}
+
+
+
+.section-login-box{background-color:var(--bg-2); box-shadow:var(--shadow-default); border-radius:var(--rounded-2);}
+
+
+
+
+
+
+
+@media screen and (min-width:0px) and (max-width:413px){
+  
+}
+
+
+
+
+
+
+
+@media screen and (min-width:414px) and (max-width:1023px){
+  
+}
+
+
+
+
+
+
+
+@media screen and (min-width:0px) and (max-width:1023px){
+  
+}
+
+
+
+
+
+
+
+@media screen and (min-width:640px){
+  
+}
+
+
+
+
+
+
+
+@media screen and (min-width:768px){
+  
+}
+
+
+
+
+
+
+
+@media screen and (min-width:1024px){
+  
+}
+
+
+
+
+
+
+
+@media screen and (min-width:1280px){
+  
+}

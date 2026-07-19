@@ -12,6 +12,9 @@ RewriteRule ^services/?$ services.php [L,QSA]
 RewriteRule ^blog/?$ blog.php [L,QSA]
 RewriteRule ^contact/?$ contact.php [L,QSA]
 
+RewriteRule ^login/?$ login.php [L,QSA]
+RewriteRule ^admin/?$ admin.php [L,QSA]
+
 
 # --- OPTIMASI CORE WEB VITALS (CACHE) ---
 <IfModule mod_expires.c>

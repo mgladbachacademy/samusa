@@ -1,5 +1,8 @@
 <noscript id="deferred-styles">
   <link rel="stylesheet" type="text/css" href="template/css/hold.css?<?php echo $anticache;?>" media="print" onload="this.media='all'"/>
+  <?php if($menu == 'login' || $menu == 'admin') { ?>
+    <link rel="stylesheet" type="text/css" href="template/css/admin-hold.css?<?php echo $anticache;?>" media="print" onload="this.media='all'"/>
+  <?php } ?>
 </noscript>
 <script defer>
   var loadDeferredStyles = function() {

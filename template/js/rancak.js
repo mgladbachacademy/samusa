@@ -22,6 +22,20 @@ function open_sticky(){
 
 
 
+function custom_password(){
+  $('.form-password .form-icon').click(function(){
+    if($(this).is('.show-password')){
+     $(this).removeClass('show-password').addClass('hide-password');
+     $(this).parent().find(".form-field").attr("type","password");
+    }else{
+     $(this).removeClass('hide-password').addClass('show-password');
+     $(this).parent().find(".form-field").attr("type","text");
+    }
+  });
+}
+
+
+
 var parallaxSection = document.querySelector(".section-cover .section-bg img");
 function updateParallax() {
   if (parallaxSection) {
@@ -37,4 +51,5 @@ window.addEventListener("scroll", updateParallax);
 $(document).ready(function(){
   "use strict";
   open_sticky();
+  custom_password();
 });

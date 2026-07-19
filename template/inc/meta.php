@@ -75,6 +75,12 @@ $("body,html").bind("touchstart touchmove scroll mousedown DOMMouseScroll mousew
 
 <link rel="stylesheet" type="text/css" href="template/css/rancak.css?<?php echo $anticache; ?>"/>
 <link rel="stylesheet" type="text/css" href="template/css/rancak-desktop.css?<?php echo $anticache; ?>" media="(min-width:1024px)">
+
+<?php if($menu == 'login' || $menu == 'admin') { ?>
+  <link rel="preload" href="template/css/admin.css?<?php echo $anticache; ?>" as="style">
+  <link rel="stylesheet" type="text/css" href="template/css/admin.css?<?php echo $anticache; ?>"/>
+<?php } ?>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

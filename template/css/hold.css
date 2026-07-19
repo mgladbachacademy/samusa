@@ -28,7 +28,7 @@
   --rounded-3:24px;
   --hover-opacity:64%;
   --transition-default:all 0.34s;
-  --shadow-default:2px 5px 13px rgb(0 0 0 / 8%);
+  --shadow-default:0px 2px 8px 0px rgb(99 99 99 / 20%) ;
   --shadow-neumorp:-2px -2px 4px rgba(255,255,255,.2), 2px 2px 12px rgba(0,0,0,.2);
   --shadow-inset:inset -2px -2px 4px rgba(255,255,255,.2), inset 2px 2px 12px rgba(0,0,0,.2);
 }
@@ -71,7 +71,7 @@ a.img-frame:hover{opacity:var(--hover-opacity);}
 
 
 
-header{background-color:var(--bg-2); box-shadow:rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;}
+header{background-color:var(--bg-2); box-shadow:var(--shadow-default);}
 .header-box{color:var(--color-2);}
 .header-curr{color:var(--color-4);}
 

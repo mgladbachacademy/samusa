@@ -123,5 +123,6 @@
 
 
 
+</div>
 <?php require ($_SERVER['SMS'].'template/inc/footer.php')?>
 <?php require ($_SERVER['SMS'].'template/inc/base-bottom.php')?>
