@@ -1,10 +1,8 @@
 <?php
-// Mencegah akses langsung ke file
 if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
     die('Direct access not permitted');
 }
 
-// Pengaturan Konfigurasi Database
 $db_host = 'localhost';
 $db_user = 'root';
 $db_pass = '';
@@ -20,7 +18,6 @@ try {
     die("Koneksi Database Gagal: " . $e->getMessage());
 }
 
-// Session Hardening
 if (session_status() === PHP_SESSION_NONE) {
     ini_set('session.cookie_httponly', 1);
     ini_set('session.use_only_cookies', 1);
@@ -28,14 +25,13 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Auto-seed akun admin jika belum ada di database
+// Auto-seed akun admin (username: admin, password: 54mUs@Ind0N3S1a)
 $stmt_check = $pdo->query("SELECT COUNT(*) FROM users WHERE username = 'admin'");
 if ($stmt_check->fetchColumn() == 0) {
     $default_pass_hash = password_hash('54mUs@Ind0N3S1a', PASSWORD_DEFAULT);
     $pdo->prepare("INSERT INTO users (username, password) VALUES ('admin', ?)")->execute([$default_pass_hash]);
 }
 
-// CSRF Token Helper
 function get_csrf_token() {
     if (empty($_SESSION['csrf_token'])) {
         $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
@@ -49,7 +45,6 @@ function verify_csrf_token($token) {
     }
 }
 
-// Helper Autentikasi Admin
 function check_admin() {
     if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
         header("Location: /login/");
@@ -57,7 +52,6 @@ function check_admin() {
     }
 }
 
-// Helper Pembuat Slug Bersih
 function create_slug($string) {
     $string = strtolower(trim($string));
     $string = preg_replace('/[^a-z0-9-]/', '-', $string);
@@ -65,11 +59,10 @@ function create_slug($string) {
     return rtrim($string, '-');
 }
 
-// Helper Resize Gambar Proporsional (GD Library)
+// Helper Resize Gambar Proporsional (Resolusi: 414px, 640px, 1024px, 1920px)
 function resize_image_proporsional($source_path, $dest_path, $target_width) {
     list($width, $height, $type) = getimagesize($source_path);
     
-    // Hitung tinggi proporsional tanpa mengubah aspek rasio
     $ratio = $target_width / $width;
     $target_height = round($height * $ratio);
 
@@ -84,8 +77,6 @@ function resize_image_proporsional($source_path, $dest_path, $target_width) {
     if (!$src_img) return false;
 
     $dst_img = imagecreatetruecolor($target_width, $target_height);
-    
-    // Pertahankan transparansi untuk proses temporary jika dibutuhkan, lalu simpan sebagai JPG kualitas tinggi (90%)
     imagecopyresampled($dst_img, $src_img, 0, 0, 0, 0, $target_width, $target_height, $width, $height);
     imagejpeg($dst_img, $dest_path, 90);
 

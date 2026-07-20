@@ -8,7 +8,6 @@ $limit = 9;
 $offset = ($page - 1) * $limit;
 $type = $_GET['type'] ?? 'blog';
 
-// Proteksi keamanan: endpoint admin & archive wajib login admin
 if ($type === 'admin' || $type === 'archive') {
     if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
         echo json_encode([]);

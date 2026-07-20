@@ -20,6 +20,7 @@
       $action = $_POST['action'] ?? 'save';
 
       if ($action === 'delete') {
+          // Soft delete, tidak menghapus file gambar fisik
           $stmt_del = $pdo->prepare("UPDATE articles SET is_deleted = 1 WHERE id = ?");
           $stmt_del->execute([$article_id]);
           header("Location: /admin/");
@@ -36,9 +37,9 @@
                   $tmp_name = $_FILES['HeroImage']['tmp_name'];
                   $resizes = [
                       '-mobile-small.jpg' => 414,
-                      '-mobile.jpg'       => 1080,
-                      '-desktop.jpg'      => 1920,
-                      '-desktop-big.jpg'  => 2560
+                      '-mobile.jpg'       => 640,
+                      '-desktop.jpg'      => 1024,
+                      '-desktop-big.jpg'  => 1920
                   ];
                   foreach ($resizes as $suffix => $width) {
                       resize_image_proporsional($tmp_name, $upload_dir . $slug . $suffix, $width);
@@ -48,7 +49,8 @@
               $stmt_upd = $pdo->prepare("UPDATE articles SET title = ?, content = ? WHERE id = ?");
               $stmt_upd->execute([$title, $content, $article_id]);
               
-              header("Location: /admin/edit/" . $article['id'] . "-" . $article['slug'] . "/");
+              // Modifikasi: Redirect ke halaman /admin/ setelah berhasil save
+              header("Location: /admin/");
               exit;
           } else {
               $error_msg = 'Judul dan Konten tidak boleh kosong!';
@@ -84,9 +86,9 @@
         <div class="section-title">
           <h2 class="text-title section-title-primary">Edit Article</h2>
         </div>
-        <?php if (!empty($error_msg)): ?>
+        <?php if (!empty($error_msg)){ ?>
           <div class="slb-label"><?php echo htmlspecialchars($error_msg); ?></div>
-        <?php endif; ?>
+        <?php } ?>
         <div class="editor-detail">
           <div class="editor-detail-form">
             <div class="slb-label">Title</div>
@@ -98,8 +100,8 @@
             <div class="slb-label">Hero Image</div>
             <div class="form-box slb-box">
               <input class="form-field" type="file" name="HeroImage" accept="image/*" placeholder="Hero Image">
-              <div class="slb-label">Image saat ini: <?php echo htmlspecialchars($article['hero_image'] . '-desktop-big.jpg'); ?></div>
             </div>
+            <div class="slb-label slb-note"><?php echo htmlspecialchars($article['hero_image'] . '-desktop-big.jpg'); ?></div>
           </div>
           <div class="editor-detail-form">
             <div class="slb-label">Date</div>

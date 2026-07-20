@@ -12,6 +12,7 @@
       if ($action === 'restore') {
           $pdo->prepare("UPDATE articles SET is_deleted = 0 WHERE id = ?")->execute([$target_id]);
       } elseif ($action === 'delete_permanent') {
+          // Eksekusi hapus file fisik gambar (hanya saat Delete Permanen)
           $stmt_img = $pdo->prepare("SELECT hero_image FROM articles WHERE id = ?");
           $stmt_img->execute([$target_id]);
           $img_data = $stmt_img->fetch();
@@ -37,44 +38,34 @@
 <?php require ($_SERVER['SMS'].'template/inc/header.php')?>
 <div class="rancak-foundation">
   
-<section class="section-default section-admin content-center">
+<section class="section-default section-admin-article content-center">
   <div class="section-container">
 
-    <div class="admin-top">
-      <h2 class="text-title section-title-primary">Archived Articles</h2>
-      <div class="admin-top-action">
-        <a href="/admin/" class="btn btn-outline">Back to Article List</a>
+    <div class="admin-article-content">
+      <div class="section-title">
+        <h2 class="text-title section-title-primary">Archived Articles</h2>
       </div>
-    </div>
-
-    <div class="admin-article-list" id="article-container">
-      <?php foreach ($articles as $row): ?>
-        <div class="admin-article-box">
-          <div class="aal-image">
-            <picture class="aal-image-frame img-frame thumb-loading">
-              <img alt="Foto <?php echo htmlspecialchars($row['title']); ?>" class="lazyload" data-original="template/img/blog/<?php echo htmlspecialchars($row['hero_image']); ?>-mobile-small.jpg"/>
-            </picture>
+      <div class="aal-new-article">
+        <a class="btn aal-button" href="/admin/">Back to Article List</a>
+      </div>
+      <div class="admin-article-list" id="article-list-container">
+        <?php foreach ($articles as $row){ ?>
+          <div class="aal-box">
+            <div class="aal-image">
+              <div class="aal-image-frame img-frame thumb-loading">
+                <img alt="Foto <?php echo htmlspecialchars($row['title']); ?>" class="lazyload" data-original="template/img/blog/<?php echo htmlspecialchars($row['hero_image']); ?>-mobile-small.jpg"/>
+              </div>
+            </div>
+            <div class="aal-info">
+              <h2 class="aal-title"><?php echo htmlspecialchars($row['title']); ?></h2>
+              <div class="aal-action">
+                <button class="btn aal-button button-edit" onclick="submitArchive(<?php echo $row['id']; ?>, 'restore')">Restore</button>
+                <button class="btn aal-button button-delete" onclick="submitArchive(<?php echo $row['id']; ?>, 'delete_permanent')">Delete Permanent</button>
+              </div>
+            </div>
           </div>
-          <div class="aal-info">
-            <h3 class="text-title aal-title">
-              <?php echo htmlspecialchars($row['title']); ?>
-            </h3>
-            <div class="aal-date">Dihapus pada: <?php echo date('d M Y, H:i', strtotime($row['updated_at'])); ?></div>
-          </div>
-          <div class="aal-action">
-            <form method="POST" action="/admin/archive/">
-              <input type="hidden" name="csrf_token" value="<?php echo get_csrf_token(); ?>">
-              <input type="hidden" name="article_id" value="<?php echo $row['id']; ?>">
-              <button type="submit" name="action" value="restore" class="btn btn-outline">Restore</button>
-              <button type="submit" name="action" value="delete_permanent" class="btn button-delete" onclick="return confirm('Hapus permanen? Data dan gambar tidak bisa dikembalikan!');">Delete Permanen</button>
-            </form>
-          </div>
-        </div>
-      <?php endforeach; ?>
-    </div>
-
-    <div id="scroll-loader" class="content-center hide">
-      <span>Loading more archive...</span>
+        <?php } ?>
+      </div>
     </div>
 
   </div>
@@ -82,44 +73,53 @@
 
 </div>
 
+<form id="archive-form" method="POST" action="/admin/archive/" class="hide">
+  <input type="hidden" name="csrf_token" value="<?php echo get_csrf_token(); ?>">
+  <input type="hidden" name="article_id" id="archive-id-input" value="">
+  <input type="hidden" name="action" id="archive-action-input" value="">
+</form>
+
 <script>
+function submitArchive(id, action) {
+    let msg = action === 'restore' ? 'Kembalikan artikel ini ke daftar utama?' : 'Hapus permanen? Data dan gambar fisik tidak bisa dikembalikan!';
+    if (confirm(msg)) {
+        document.getElementById('archive-id-input').value = id;
+        document.getElementById('archive-action-input').value = action;
+        document.getElementById('archive-form').submit();
+    }
+}
+
 let currentPage = 1;
 let isLoading = false;
 let hasMore = <?php echo count($articles) >= 9 ? 'true' : 'false'; ?>;
 
 window.addEventListener('scroll', () => {
     if (isLoading || !hasMore) return;
+    
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 200) {
         isLoading = true;
         currentPage++;
-        document.getElementById('scroll-loader').classList.remove('hide');
 
         fetch(`/api/articles.php?page=${currentPage}&type=archive`)
             .then(response => response.json())
             .then(data => {
-                document.getElementById('scroll-loader').classList.add('hide');
                 if (data.length > 0) {
-                    const container = document.getElementById('article-container');
+                    const container = document.getElementById('article-list-container');
                     data.forEach(item => {
                         const div = document.createElement('div');
-                        div.className = 'admin-article-box';
+                        div.className = 'aal-box';
                         div.innerHTML = `
                           <div class="aal-image">
-                            <picture class="aal-image-frame img-frame thumb-loading">
+                            <div class="aal-image-frame img-frame thumb-loading">
                               <img alt="Foto ${item.title}" class="lazyload" src="template/img/blog/${item.hero_image}-mobile-small.jpg"/>
-                            </picture>
+                            </div>
                           </div>
                           <div class="aal-info">
-                            <h3 class="text-title aal-title">${item.title}</h3>
-                            <div class="aal-date">Dihapus pada: ${item.date}</div>
-                          </div>
-                          <div class="aal-action">
-                            <form method="POST" action="/admin/archive/">
-                              <input type="hidden" name="csrf_token" value="<?php echo get_csrf_token(); ?>">
-                              <input type="hidden" name="article_id" value="${item.id}">
-                              <button type="submit" name="action" value="restore" class="btn btn-outline">Restore</button>
-                              <button type="submit" name="action" value="delete_permanent" class="btn button-delete" onclick="return confirm('Hapus permanen? Data dan gambar tidak bisa dikembalikan!');">Delete Permanen</button>
-                            </form>
+                            <h2 class="aal-title">${item.title}</h2>
+                            <div class="aal-action">
+                              <button class="btn aal-button button-edit" onclick="submitArchive(${item.id}, 'restore')">Restore</button>
+                              <button class="btn aal-button button-delete" onclick="submitArchive(${item.id}, 'delete_permanent')">Delete Permanent</button>
+                            </div>
                           </div>
                         `;
                         container.appendChild(div);
@@ -132,7 +132,6 @@ window.addEventListener('scroll', () => {
             })
             .catch(() => {
                 isLoading = false;
-                document.getElementById('scroll-loader').classList.add('hide');
             });
     }
 });

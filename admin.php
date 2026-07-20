@@ -19,47 +19,39 @@
 <?php require ($_SERVER['SMS'].'template/inc/header.php')?>
 <div class="rancak-foundation">
   
-<section class="section-default section-admin content-center">
+  
+  
+  
+
+<section class="section-default section-admin-article content-center">
   <div class="section-container">
 
-    <div class="section-title">
-      <h2 class="text-title section-title-primary">Article List</h2>
-    </div>
-    <div class="aal-new-article">
-      <a href="/admin/archive/" class="btn btn-outline">Archive</a>
-      <a href="/admin/new-article/" class="btn">Create Article</a>
-    </div>
-
-    <div class="admin-article-list" id="article-container">
-      <?php foreach ($articles as $row): ?>
-        <div class="admin-article-box">
-          <div class="aal-image">
-            <picture class="aal-image-frame img-frame thumb-loading">
-              <img alt="Foto <?php echo htmlspecialchars($row['title']); ?>" class="lazyload" data-original="template/img/blog/<?php echo htmlspecialchars($row['hero_image']); ?>-mobile-small.jpg"/>
-            </picture>
+    <div class="admin-article-content">
+      <div class="section-title">
+        <h2 class="text-title section-title-primary">Article List</h2>
+      </div>
+      <div class="aal-new-article">
+        <a class="btn aal-button aal-button-create" href="admin/new-article/">Create Article</a>
+        <a class="btn btn-outline aal-button" href="admin/archive/">Archive</a>
+      </div>
+      <div class="admin-article-list" id="article-list-container">
+        <?php foreach ($articles as $row){ ?>
+          <div class="aal-box">
+            <div class="aal-image">
+              <div class="aal-image-frame img-frame thumb-loading">
+                <img alt="Foto <?php echo htmlspecialchars($row['title']); ?>" class="lazyload" data-original="template/img/blog/<?php echo htmlspecialchars($row['hero_image']); ?>-mobile-small.jpg"/>
+              </div>
+            </div>
+            <div class="aal-info">
+              <h2 class="aal-title"><?php echo htmlspecialchars($row['title']); ?></h2>
+              <div class="aal-action">
+                <a class="btn aal-button button-edit" href="admin/edit/<?php echo $row['id'] . '-' . $row['slug']; ?>/">Edit</a>
+                <button class="btn aal-button button-delete" onclick="confirmDelete(<?php echo $row['id']; ?>)">Delete</button>
+              </div>
+            </div>
           </div>
-          <div class="aal-info">
-            <h3 class="text-title aal-title">
-              <a href="/blog/<?php echo $row['id'] . '-' . $row['slug']; ?>/" target="_blank">
-                <?php echo htmlspecialchars($row['title']); ?>
-              </a>
-            </h3>
-            <div class="aal-date"><?php echo date('d M Y, H:i', strtotime($row['created_at'])); ?></div>
-          </div>
-          <div class="aal-action">
-            <a href="/admin/edit/<?php echo $row['id'] . '-' . $row['slug']; ?>/" class="btn btn-outline">Edit</a>
-            <form method="POST" action="/admin/">
-              <input type="hidden" name="csrf_token" value="<?php echo get_csrf_token(); ?>">
-              <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
-              <button type="submit" class="btn button-delete" onclick="return confirm('Hapus artikel ini?');">Delete</button>
-            </form>
-          </div>
-        </div>
-      <?php endforeach; ?>
-    </div>
-
-    <div id="scroll-loader" class="content-center hide">
-      <span>Loading more articles...</span>
+        <?php } ?>
+      </div>
     </div>
 
   </div>
@@ -67,7 +59,19 @@
 
 </div>
 
+<form id="delete-form" method="POST" action="/admin/" class="hide">
+  <input type="hidden" name="csrf_token" value="<?php echo get_csrf_token(); ?>">
+  <input type="hidden" name="delete_id" id="delete-id-input" value="">
+</form>
+
 <script>
+function confirmDelete(id) {
+    if (confirm('Apakah Anda yakin ingin menghapus artikel ini?')) {
+        document.getElementById('delete-id-input').value = id;
+        document.getElementById('delete-form').submit();
+    }
+}
+
 let currentPage = 1;
 let isLoading = false;
 let hasMore = <?php echo count($articles) >= 9 ? 'true' : 'false'; ?>;
@@ -78,36 +82,27 @@ window.addEventListener('scroll', () => {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 200) {
         isLoading = true;
         currentPage++;
-        document.getElementById('scroll-loader').classList.remove('hide');
 
         fetch(`/api/articles.php?page=${currentPage}&type=admin`)
             .then(response => response.json())
             .then(data => {
-                document.getElementById('scroll-loader').classList.add('hide');
                 if (data.length > 0) {
-                    const container = document.getElementById('article-container');
+                    const container = document.getElementById('article-list-container');
                     data.forEach(item => {
                         const div = document.createElement('div');
-                        div.className = 'admin-article-box';
+                        div.className = 'aal-box';
                         div.innerHTML = `
                           <div class="aal-image">
-                            <picture class="aal-image-frame img-frame thumb-loading">
+                            <div class="aal-image-frame img-frame thumb-loading">
                               <img alt="Foto ${item.title}" class="lazyload" src="template/img/blog/${item.hero_image}-mobile-small.jpg"/>
-                            </picture>
+                            </div>
                           </div>
                           <div class="aal-info">
-                            <h3 class="text-title aal-title">
-                              <a href="/blog/${item.id}-${item.slug}/" target="_blank">${item.title}</a>
-                            </h3>
-                            <div class="aal-date">${item.date}</div>
-                          </div>
-                          <div class="aal-action">
-                            <a href="/admin/edit/${item.id}-${item.slug}/" class="btn btn-outline">Edit</a>
-                            <form method="POST" action="/admin/">
-                              <input type="hidden" name="csrf_token" value="<?php echo get_csrf_token(); ?>">
-                              <input type="hidden" name="delete_id" value="${item.id}">
-                              <button type="submit" class="btn button-delete" onclick="return confirm('Hapus artikel ini?');">Delete</button>
-                            </form>
+                            <h2 class="aal-title">${item.title}</h2>
+                            <div class="aal-action">
+                              <a class="btn aal-button button-edit" href="admin/edit/${item.id}-${item.slug}/">Edit</a>
+                              <button class="btn aal-button button-delete" onclick="confirmDelete(${item.id})">Delete</button>
+                            </div>
                           </div>
                         `;
                         container.appendChild(div);
@@ -120,7 +115,6 @@ window.addEventListener('scroll', () => {
             })
             .catch(() => {
                 isLoading = false;
-                document.getElementById('scroll-loader').classList.add('hide');
             });
     }
 });

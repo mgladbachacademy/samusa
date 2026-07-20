@@ -7,13 +7,12 @@ RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
 RewriteRule ^ https://%1%{REQUEST_URI} [L,NE,R=301]
 
-# Halaman Publik Eksisting
 RewriteRule ^about/?$ about.php [L,QSA]
 RewriteRule ^services/?$ services.php [L,QSA]
 RewriteRule ^blog/?$ blog.php [L,QSA]
 RewriteRule ^contact/?$ contact.php [L,QSA]
 
-# Halaman Detail Blog Dinamis (Format: [ID]-[SLUG])
+# Routing Detail Artikel Dinamis (Format: [ID]-[SLUG])
 RewriteRule ^blog/([0-9]+)-([a-z0-9-]+)/?$ blog-detail.php?id=$1&slug=$2 [L,QSA]
 
 # Routing Admin & Auth

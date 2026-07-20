@@ -29,7 +29,7 @@
 <section class="section-default section-tipeB content-center">
   <div class="section-container" id="blog-container">
 
-    <?php foreach ($articles as $row): ?>
+    <?php foreach ($articles as $row){ ?>
       <?php 
         $clean_desc = strip_tags($row['content']);
         if (mb_strlen($clean_desc) > 150) {
@@ -51,14 +51,10 @@
           </div>
         </div>
       </a>
-    <?php endforeach; ?>
+    <?php } ?>
 
   </div>
 </section>
-
-<div id="scroll-loader" class="content-center hide">
-  <span>Loading more articles...</span>
-</div>
 
 </div>
 
@@ -69,15 +65,14 @@ let hasMore = <?php echo count($articles) >= 9 ? 'true' : 'false'; ?>;
 
 window.addEventListener('scroll', () => {
     if (isLoading || !hasMore) return;
+    
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 200) {
         isLoading = true;
         currentPage++;
-        document.getElementById('scroll-loader').classList.remove('hide');
 
         fetch(`/api/articles.php?page=${currentPage}&type=blog`)
             .then(response => response.json())
             .then(data => {
-                document.getElementById('scroll-loader').classList.add('hide');
                 if (data.length > 0) {
                     const container = document.getElementById('blog-container');
                     data.forEach(item => {
@@ -110,7 +105,6 @@ window.addEventListener('scroll', () => {
             })
             .catch(() => {
                 isLoading = false;
-                document.getElementById('scroll-loader').classList.add('hide');
             });
     }
 });

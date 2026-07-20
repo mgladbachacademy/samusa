@@ -10,13 +10,11 @@
   $stmt->execute([$article_id]);
   $article = $stmt->fetch();
 
-  // Validasi kecocokan slug & keberadaan artikel
   if (!$article || $article['slug'] !== $article_slug) {
       header("Location: /blog/");
       exit;
   }
 
-  // Fetch 6 Artikel Terkait (Tanpa artikel saat ini)
   $stmt_rel = $pdo->prepare("SELECT * FROM articles WHERE id != ? AND is_deleted = 0 ORDER BY created_at DESC LIMIT 6");
   $stmt_rel->execute([$article_id]);
   $related_articles = $stmt_rel->fetchAll();
@@ -34,7 +32,7 @@
       <h3 class="sda-author"><?php echo htmlspecialchars($article['author']); ?></h3>
     </div>
 
-    <!-- Implementasi 4 Resolusi Gambar Proporsional -->
+    <!-- Aturan breakpoint media tidak diubah sama sekali sesuai instruksi review -->
     <picture class="sda-img img-frame thumb-loading">
       <source media="(min-width:1280px)" data-srcset="template/img/blog/<?php echo htmlspecialchars($article['hero_image']); ?>-desktop-big.jpg">
       <source media="(min-width:640px)" data-srcset="template/img/blog/<?php echo htmlspecialchars($article['hero_image']); ?>-desktop.jpg">
@@ -59,7 +57,7 @@
       <div class="section-tipeB content-center">
         <div class="section-container">
 
-          <?php foreach ($related_articles as $rel): ?>
+          <?php foreach ($related_articles as $rel){ ?>
             <?php 
               $rel_desc = strip_tags($rel['content']);
               if (mb_strlen($rel_desc) > 100) {
@@ -81,7 +79,7 @@
                 </div>
               </div>
             </a>
-          <?php endforeach; ?>
+          <?php } ?>
 
         </div>
       </div>

@@ -43,11 +43,11 @@
     <form method="POST" action="/login/">
       <input type="hidden" name="csrf_token" value="<?php echo get_csrf_token(); ?>">
       <ul class="section-login-box">
-        <?php if (!empty($error_msg)): ?>
+        <?php if (!empty($error_msg)){ ?>
           <li class="slb-row">
-            <div class="slb-label text-alert"><?php echo htmlspecialchars($error_msg); ?></div>
+            <div class="slb-label"><?php echo htmlspecialchars($error_msg); ?></div>
           </li>
-        <?php endif; ?>
+        <?php } ?>
         <li class="slb-row">
           <div class="slb-label">Username</div>
           <div class="form-box slb-box">

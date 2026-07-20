@@ -25,11 +25,13 @@
           }
 
           $tmp_name = $_FILES['HeroImage']['tmp_name'];
+          
+          // Resolusi baru sesuai instruksi review
           $resizes = [
               '-mobile-small.jpg' => 414,
-              '-mobile.jpg'       => 1080,
-              '-desktop.jpg'      => 1920,
-              '-desktop-big.jpg'  => 2560
+              '-mobile.jpg'       => 640,
+              '-desktop.jpg'      => 1024,
+              '-desktop-big.jpg'  => 1920
           ];
 
           $upload_success = true;
@@ -78,9 +80,9 @@
         <div class="section-title">
           <h2 class="text-title section-title-primary">Create Article</h2>
         </div>
-        <?php if (!empty($error_msg)): ?>
+        <?php if (!empty($error_msg)){ ?>
           <div class="slb-label"><?php echo htmlspecialchars($error_msg); ?></div>
-        <?php endif; ?>
+        <?php } ?>
         <div class="editor-detail">
           <div class="editor-detail-form">
             <div class="slb-label">Title</div>
