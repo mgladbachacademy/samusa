@@ -47,9 +47,10 @@ a:hover, button:hover{color:var(--color-3); fill:var(--color-3);}
 .btn-outline:hover, a.btn-outline:hover, button.btn-outline:hover{border-color:var(--color-4); color:var(--color-4); fill:var(--color-4); background-color:transparent;}
 b{color:var(--color-3);}
 .form-box{background-color:var(--bg-2); border-radius:var(--rounded-1);}
-.form-label b{color:var(--color-alert);}
+.form-label b, .text-alert{color:var(--color-alert);}
 .form-field{border-color:var(--color-border-form); background-color:transparent; border-radius:var(--rounded-1);}
 .form-field::placeholder{color:#E0E0E0;}
+.form-field:disabled{background-color:var(--color-border);}
 .form-icon{background-color:var(--bg-2); border-radius:var(--rounded-1); fill:var(--color-1); transition:var(--transition-default); cursor:pointer}
 .form-icon:hover{fill:var(--color-4);}
 

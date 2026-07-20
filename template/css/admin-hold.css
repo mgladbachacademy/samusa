@@ -8,6 +8,13 @@
 
 
 
+.aal-box{background-color:var(--bg-2); box-shadow:var(--shadow-default); border-radius:var(--rounded-2);}
+.aal-image-frame{border-radius:var(--rounded-1);}
+.aal-title{color:var(--color-2);}
+button.button-delete{background-color:var(--color-alert);}
+
+
+
 
 
 

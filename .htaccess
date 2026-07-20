@@ -7,20 +7,26 @@ RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
 RewriteRule ^ https://%1%{REQUEST_URI} [L,NE,R=301]
 
+# Halaman Publik Eksisting
 RewriteRule ^about/?$ about.php [L,QSA]
 RewriteRule ^services/?$ services.php [L,QSA]
 RewriteRule ^blog/?$ blog.php [L,QSA]
 RewriteRule ^contact/?$ contact.php [L,QSA]
 
-RewriteRule ^login/?$ login.php [L,QSA]
-RewriteRule ^admin/?$ admin.php [L,QSA]
+# Halaman Detail Blog Dinamis (Format: [ID]-[SLUG])
+RewriteRule ^blog/([0-9]+)-([a-z0-9-]+)/?$ blog-detail.php?id=$1&slug=$2 [L,QSA]
 
+# Routing Admin & Auth
+RewriteRule ^login/?$ login.php [L,QSA]
+RewriteRule ^logout/?$ logout.php [L,QSA]
+RewriteRule ^admin/?$ admin.php [L,QSA]
+RewriteRule ^admin/new-article/?$ article-create.php [L,QSA]
+RewriteRule ^admin/edit/([0-9]+)-([a-z0-9-]+)/?$ article-edit.php?id=$1&slug=$2 [L,QSA]
+RewriteRule ^admin/archive/?$ admin-archive.php [L,QSA]
 
 # --- OPTIMASI CORE WEB VITALS (CACHE) ---
 <IfModule mod_expires.c>
     ExpiresActive On
-
-    # Gambar, Video, Font (1 Tahun)
     ExpiresByType image/jpg "access plus 1 year"
     ExpiresByType image/jpeg "access plus 1 year"
     ExpiresByType image/gif "access plus 1 year"
@@ -30,8 +36,6 @@ RewriteRule ^admin/?$ admin.php [L,QSA]
     ExpiresByType image/x-icon "access plus 1 year"
     ExpiresByType font/woff "access plus 1 year"
     ExpiresByType font/woff2 "access plus 1 year"
-    
-    # CSS & JavaScript (1 Bulan)
     ExpiresByType text/css "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"
     ExpiresByType application/x-javascript "access plus 1 month"

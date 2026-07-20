@@ -68,7 +68,7 @@ header .section-container{padding:0;}
 .header-left, .header-right{display:flex;}
 .header-box{padding:var(--size-4); font-weight:normal; text-transform:capitalize;}
 
-.header-right{min-height:var(--size-4);}
+.header-right{min-height:calc(var(--size-4) - var(--size-1));}
 .header-logo svg{width:auto; height:24px;}
 .header-logo svg{height:24px;}
 

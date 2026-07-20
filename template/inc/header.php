@@ -16,6 +16,11 @@
           </a>
         <?php } ?>
       <?php } ?>
+      <?php if($menu == 'admin') { ?>
+        <a title="Logout" href="logout/" class="header-box content-center">
+          <div class="header-label">Logout</div>
+        </a>
+      <?php } ?>
     </div>
   </div>
 </header>
