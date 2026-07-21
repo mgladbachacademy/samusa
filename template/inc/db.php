@@ -3,7 +3,8 @@ if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
     die('Direct access not permitted');
 }
 
-if ($domain === 'mgladbach-dashboard' || $domain === '127.0.0.1') {
+$domain = $_SERVER['HTTP_HOST'];
+if ($domain === 'samusa' || $domain === '127.0.0.1') {
     $db_host = 'localhost';
     $db_user = 'root';
     $db_pass = '';
