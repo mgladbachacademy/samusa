@@ -57,6 +57,18 @@
 <link rel="canonical" href="https://gfifoundation.org/" />
 <link href="template/img/favicon.ico?<?php echo $anticache; ?>" rel="icon" type="image/ico" />
 
+<?php
+  $font_dir = $_SERVER['SMS'] . 'template/fonts/';
+  if (is_dir($font_dir)) {
+      $fonts = glob($font_dir . '*.woff2');
+      if ($fonts) {
+          foreach ($fonts as $font_path) {
+              $font_name = basename($font_path);
+              echo '<link rel="preload" href="template/fonts/' . htmlspecialchars($font_name) . '" as="font" type="font/woff2" crossorigin>' . "\n";
+          }
+      }
+  }
+?>
 <link rel="preload" href="template/css/rancak.css?<?php echo $anticache; ?>" as="style">
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" as="script">
 <link rel="preload" href="template/js/lazysizes.min.js" as="script">
