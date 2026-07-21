@@ -1,12 +1,12 @@
 <head>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V8GY96GR6J"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2F1MPWPW57"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-V8GY96GR6J');
+  gtag('config', 'G-2F1MPWPW57');
 </script>
 
 <meta charset="utf-8">
