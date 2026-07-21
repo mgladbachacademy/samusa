@@ -134,7 +134,7 @@ a.cover-button{margin-top:var(--size-1); margin-right:var(--size-1); padding-lef
 .section-detail-article .section-container{display:grid; grid-gap:var(--size-5);}
 .sda-top{display:grid; grid-gap:var(--size-1);}
 .sda-title{font-size:1.75rem; font-weight:bold; line-height:130%; text-transform:uppercase;}
-.sda-img{--aspect-ratio:4/3;}
+.sda-img{--aspect-ratio:16/9;}
 
 .sda-content{display:grid; grid-gap:var(--size-4); line-height:160%;}
 .sda-content > ul, .sda-content > ol{padding-left:var(--size-4);}
