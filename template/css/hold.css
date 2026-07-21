@@ -118,12 +118,13 @@ a.cover-button{color:var(--bg-2); border-color:var(--bg-2);}
 
 
 
-.contact-link{color:var(--color-2);}
+.contact-link{color:var(--color-2); fill:var(--color-2);}
 .contact-link:hover{color:var(--color-4);}
-.contact-address{fill:var(--color-2);}
+/*
 .contact-email{fill:var(--color-ml);}
 .contact-phone{fill:var(--color-wa);}
 .contact-instagram{fill:var(--color-ig);}
+*/
 
 
 
