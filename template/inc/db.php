@@ -3,6 +3,12 @@ if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
     die('Direct access not permitted');
 }
 
+/*
+$db_host = 'localhost';
+$db_user = 'root';
+$db_pass = '';
+$db_name = 'db_samusa';
+*/
 $domain = $_SERVER['HTTP_HOST'];
 if ($domain === 'samusa' || $domain === '127.0.0.1') {
     $db_host = 'localhost';
@@ -13,7 +19,7 @@ if ($domain === 'samusa' || $domain === '127.0.0.1') {
     $db_host = 'localhost'; 
     $db_user = 'u981788094_samusa'; 
     $db_pass = '54mUs@Ind0N3S1a'; 
-    $db_name = 'u981788094_samusa'; 
+    $db_name = 'u981788094_samusa_db'; 
 }
 
 try {
