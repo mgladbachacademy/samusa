@@ -3,10 +3,17 @@ if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
     die('Direct access not permitted');
 }
 
-$db_host = 'localhost';
-$db_user = 'root';
-$db_pass = '';
-$db_name = 'db_samusa';
+if ($domain === 'mgladbach-dashboard' || $domain === '127.0.0.1') {
+    $db_host = 'localhost';
+    $db_user = 'root';
+    $db_pass = '';
+    $db_name = 'db_samusa'; 
+} else {
+    $db_host = 'localhost'; 
+    $db_user = 'u981788094_samusa'; 
+    $db_pass = '54mUs@Ind0N3S1a'; 
+    $db_name = 'u981788094_samusa'; 
+}
 
 try {
     $pdo = new PDO("mysql:host=$db_host;dbname=$db_name;charset=utf8mb4", $db_user, $db_pass, [
