@@ -124,6 +124,7 @@ a.cover-button{margin-top:var(--size-1); margin-right:var(--size-1); padding-lef
 .tipeB-title{font-size:1.25rem; font-weight:bold; text-transform:uppercase;}
 .tipeB-content ul{padding-left:var(--size-4); list-style:square; display:grid; grid-gap:var(--size-1);}
 
+.article-box .tipeB-img{--aspect-ratio:16/9;}
 .article-box .tipeB-desc{font-weight:normal; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;}
 .article-box .tipeB-more{display:flex; align-items:center;}
 .article-box .tipeB-more svg{width:auto; height:var(--size-2); margin-left:var(--size-2);}
