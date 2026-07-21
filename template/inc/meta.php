@@ -9,6 +9,33 @@
   gtag('config', 'G-2F1MPWPW57');
 </script>
 
+<?php if($menu != 'blog-detail') { ?>
+  <title><?php echo $sitename_full; ?></title>
+  <meta name="description" content="<?php echo $sitedesc; ?>">
+  <meta property="og:url" content="https://samusaconsultant.id/"/>
+  <meta property="og:title" content="<?php echo $sitename_full; ?>"/>
+  <meta property="og:image" content="https://samusaconsultant.id/template/img/cover.jpg"/>
+  <meta property="og:description" content="<?php echo $sitedesc; ?>"/>
+  <meta name="twitter:image:src" content="https://samusaconsultant.id/template/img/cover.jpg"/>
+  <meta name="twitter:description" content="<?php echo $sitedesc; ?>"/>
+<?php } ?>
+<?php 
+  $clean_desc = strip_tags($article['content']);
+  if (mb_strlen($clean_desc) > 150) {
+      $clean_desc = mb_substr($clean_desc, 0, 150) . '...';
+  }
+  if($menu == 'blog-detail') { 
+?>
+  <title><?php echo htmlspecialchars($article['title']); ?> - <?php echo $sitename; ?></title>
+  <meta name="description" content="<?php echo $clean_desc; ?>">
+  <meta property="og:url" content="https://samusaconsultant.id/blog/<?php echo $article_id; ?>-<?php echo htmlspecialchars($article['hero_image']); ?>"/>
+  <meta property="og:title" content="<?php echo htmlspecialchars($article['title']); ?> - <?php echo $sitename; ?>"/>
+  <meta property="og:image" content="https://samusaconsultant.id/template/img/blog/<?php echo htmlspecialchars($article['hero_image']); ?>-desktop-big.jpg"/>
+  <meta property="og:description" content="<?php echo $clean_desc; ?>"/>
+  <meta name="twitter:image:src" content="https://samusaconsultant.id/template/img/blog/<?php echo htmlspecialchars($article['hero_image']); ?>-desktop-big.jpg"/>
+  <meta name="twitter:description" content="<?php echo $clean_desc; ?>"/>
+<?php } ?>
+
 <meta charset="utf-8">
 <meta name="robots" content="index, follow">	
 <meta name="googlebot" content="all"/>
@@ -26,8 +53,6 @@
 <meta name="HandheldFriendly" content="true" />
 <meta name="apple-touch-fullscreen" content="yes" />
 
-<title><?php echo $sitename_full; ?></title>
-<meta name="description" content="<?php echo $sitedesc; ?>">
 <meta name="copyright" content="2023 | <?php echo $sitename; ?>">
 <meta name="keywords" content="<?php echo $sitename_full; ?>"/>
 <meta name="news_keywords" content="<?php echo $sitename_full; ?>"/>
@@ -39,16 +64,8 @@
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1920">
 <meta property="og:image:height" content="1080">
-  
-<meta property="og:url" content="https://samusaconsultant.id/"/>
-<meta property="og:title" content="<?php echo $sitename_full; ?>"/>
-<meta property="og:image" content="https://samusaconsultant.id/template/img/cover.jpg"/>
-<meta property="og:description" content="<?php echo $sitedesc; ?>"/>
 <meta property="og:image:alt" content="<?php echo $sitename_full; ?>. <?php echo $sitedesc; ?>"/>
-
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image:src" content="https://samusaconsultant.id/template/img/cover.jpg"/>
-<meta name="twitter:description" content="<?php echo $sitedesc; ?>"/>
 
 <link rel="preconnect" href="https://samusaconsultant.id/">
 <link rel="dns-prefetch" href="https://samusaconsultant.id/">
