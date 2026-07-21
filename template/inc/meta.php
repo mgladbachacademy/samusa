@@ -34,6 +34,7 @@
   <meta property="og:description" content="<?php echo $clean_desc; ?>"/>
   <meta name="twitter:image:src" content="https://samusaconsultant.id/template/img/blog/<?php echo htmlspecialchars($article['hero_image']); ?>-desktop-big.jpg"/>
   <meta name="twitter:description" content="<?php echo $clean_desc; ?>"/>
+  <link rel="preload" href="template/img/blog/<?php echo htmlspecialchars($article['hero_image']); ?>-mobile-small.jpg" as="image" type="image/jpg">
 <?php } ?>
 
 <meta charset="utf-8">
