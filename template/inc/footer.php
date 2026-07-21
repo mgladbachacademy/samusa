@@ -1,6 +1,6 @@
 <footer class="content-center">
   <div class="section-container">
-    <?php echo $sitename_full; ?> &copy2026 - All Right Reserved
+    <?php echo $sitename_full; ?> &copy2023 - All Right Reserved
   </div>
 </footer>
 
