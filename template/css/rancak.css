@@ -121,7 +121,7 @@ a.cover-button{margin-top:var(--size-1); margin-right:var(--size-1); padding-lef
 .section-tipeB .section-container{display:grid; grid-gap:var(--size-7) var(--size-6); grid-template-columns:repeat(auto-fit, minmax(260px,1fr));}
 .tipeB-img{--aspect-ratio:4/3; margin-bottom:var(--size-4);}
 .tipeB-content{display:grid; grid-gap:var(--size-3); font-size:0.875rem; line-height:160%;}
-.tipeB-title{font-size:1.25rem; font-weight:bold; text-transform:uppercase;}
+.tipeB-title{font-size:1.25rem; font-weight:bold; text-transform:uppercase; line-height:120%;}
 .tipeB-content ul{padding-left:var(--size-4); list-style:square; display:grid; grid-gap:var(--size-1);}
 
 .article-box .tipeB-img{--aspect-ratio:16/9;}
