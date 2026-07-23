@@ -102,7 +102,7 @@
             'partner_link'=>'https://gfifoundation.org/',
           );
           $partner_array[]=array(
-            'partner_image'=>'sagiwa.jpg',
+            'partner_image'=>'sagiwa.png',
             'partner_label'=>'Ruang Sadar Sagiwa',
             'partner_link'=>'',
           );
