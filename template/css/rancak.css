@@ -153,8 +153,8 @@ a.cover-button{margin-top:var(--size-1); margin-right:var(--size-1); padding-lef
 
 
 .partner-list{display:flex; flex-wrap:wrap; justify-content:center;}
-.partner-box{margin:var(--size-4);}
-.partner-img-frame img{position:static; width:auto; height:80px;}
+.partner-box{margin:var(--size-4) var(--size-5);}
+.partner-img-frame img{position:static; width:auto; height:100px;}
 
 
 

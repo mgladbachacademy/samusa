@@ -86,7 +86,6 @@
   
   
   
-<!--  
 <section class="section-default section-partner content-center">
   <div class="section-container">
 
@@ -98,26 +97,28 @@
         <?php 
           $partner_array = array();
           $partner_array[]=array(
-            'partner_image'=>'mgladbach.webp',
-            'partner_label'=>'Borussia Monchengladbach Academy Indonesia',
-            'partner_link'=>'https://mgladbachacademy.id/',
+            'partner_image'=>'gfi.svg',
+            'partner_label'=>'Grassroots Football Indonesia Foundation',
+            'partner_link'=>'https://gfifoundation.org/',
+          );
+          $partner_array[]=array(
+            'partner_image'=>'sagiwa.jpg',
+            'partner_label'=>'Ruang Sadar Sagiwa',
+            'partner_link'=>'',
           );
           foreach($partner_array as $partner_list){
         ?>
-        <?php for ($i=1; $i<=10; $i++){ ?>
           <a title="<?php echo($partner_list['partner_label'])?>" class="partner-box" href="<?php echo($partner_list['partner_link'])?>" target="_blank">
             <picture class="partner-img-frame img-frame thumb-loading">
               <img alt="<?php echo($partner_list['partner_label'])?>" class="lazyload" data-original="template/img/partner-<?php echo($partner_list['partner_image'])?>"/>
             </picture>
           </a>
         <?php } ?>
-        <?php } ?>
       </div>
     </div>
 
   </div>
 </section>
--->
 
 
 
