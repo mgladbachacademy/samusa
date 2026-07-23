@@ -106,6 +106,11 @@
             'partner_label'=>'Ruang Sadar Sagiwa',
             'partner_link'=>'',
           );
+          $partner_array[]=array(
+            'partner_image'=>'partner-german.png',
+            'partner_label'=>'German Football Indonesia',
+            'partner_link'=>'https://mgladbachacademy.id/',
+          );
           foreach($partner_array as $partner_list){
         ?>
           <a title="<?php echo($partner_list['partner_label'])?>" class="partner-box" href="<?php echo($partner_list['partner_link'])?>" target="_blank">
