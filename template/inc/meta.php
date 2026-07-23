@@ -20,11 +20,11 @@
   <meta name="twitter:description" content="<?php echo $sitedesc; ?>"/>
 <?php } ?>
 <?php 
-  $clean_desc = strip_tags($article['content']);
-  if (mb_strlen($clean_desc) > 150) {
-      $clean_desc = mb_substr($clean_desc, 0, 150) . '...';
-  }
   if($menu == 'blog-detail') { 
+    $clean_desc = strip_tags($article['content']);
+    if (mb_strlen($clean_desc) > 150) {
+        $clean_desc = mb_substr($clean_desc, 0, 150) . '...';
+    }
 ?>
   <title><?php echo htmlspecialchars($article['title']); ?> - <?php echo $sitename; ?></title>
   <meta name="description" content="<?php echo $clean_desc; ?>">
