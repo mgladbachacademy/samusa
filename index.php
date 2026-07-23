@@ -91,7 +91,7 @@
 
     <div class="partner-content">
       <div class="section-title">
-        <h2 class="text-title section-title-primary">Our Partner</h2>
+        <h2 class="text-title section-title-primary">Our Customers</h2>
       </div>
       <div class="partner-list">
         <?php 
