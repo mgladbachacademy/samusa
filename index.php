@@ -107,7 +107,7 @@
             'partner_link'=>'',
           );
           $partner_array[]=array(
-            'partner_image'=>'partner-german.png',
+            'partner_image'=>'german.png',
             'partner_label'=>'German Football Indonesia',
             'partner_link'=>'https://mgladbachacademy.id/',
           );
