@@ -121,6 +121,11 @@
             'partner_label'=>'Borussia Mönchengladbach Academy Indonesia',
             'partner_link'=>'https://mgladbachacademy.id/',
           );
+          $partner_array[]=array(
+            'partner_image'=>'myp.png',
+            'partner_label'=>'MYP',
+            'partner_link'=>'',
+          );
           foreach($partner_array as $partner_list){
         ?>
           <a title="<?php echo($partner_list['partner_label'])?>" class="partner-box" href="<?php echo($partner_list['partner_link'])?>" target="_blank">
