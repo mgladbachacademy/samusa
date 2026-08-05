@@ -116,6 +116,11 @@
             'partner_label'=>'Genotype Health',
             'partner_link'=>'',
           );
+          $partner_array[]=array(
+            'partner_image'=>'mgladbach.png',
+            'partner_label'=>'Borussia Mönchengladbach Academy Indonesia',
+            'partner_link'=>'https://mgladbachacademy.id/',
+          );
           foreach($partner_array as $partner_list){
         ?>
           <a title="<?php echo($partner_list['partner_label'])?>" class="partner-box" href="<?php echo($partner_list['partner_link'])?>" target="_blank">
