@@ -152,7 +152,7 @@ a.cover-button{margin-top:var(--size-1); margin-right:var(--size-1); padding-lef
 
 
 
-.partner-list{display:flex; flex-wrap:wrap; justify-content:center;}
+.partner-list{display:flex; flex-wrap:wrap; justify-content:center; max-width:1000px;}
 .partner-box{margin:var(--size-4) var(--size-5);}
 .partner-img-frame img{position:static; width:auto; height:90px;}
 

@@ -126,6 +126,11 @@
             'partner_label'=>'MYP',
             'partner_link'=>'',
           );
+          $partner_array[]=array(
+            'partner_image'=>'rosatom.png',
+            'partner_label'=>'Rosatom',
+            'partner_link'=>'',
+          );
           foreach($partner_array as $partner_list){
         ?>
           <a title="<?php echo($partner_list['partner_label'])?>" class="partner-box" href="<?php echo($partner_list['partner_link'])?>" target="_blank">
