@@ -131,6 +131,11 @@
             'partner_label'=>'Rosatom',
             'partner_link'=>'',
           );
+          $partner_array[]=array(
+            'partner_image'=>'mobilinkcorp.png',
+            'partner_label'=>'Mobilink International',
+            'partner_link'=>'https://mobilinkcorp.com/',
+          );
           foreach($partner_array as $partner_list){
         ?>
           <a title="<?php echo($partner_list['partner_label'])?>" class="partner-box" href="<?php echo($partner_list['partner_link'])?>" target="_blank">
