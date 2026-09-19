@@ -104,7 +104,7 @@
           $partner_array[]=array(
             'partner_image'=>'sagiwa.png',
             'partner_label'=>'Ruang Sadar Sagiwa',
-            'partner_link'=>'',
+            'partner_link'=>'https://sagiwa.com/',
           );
           $partner_array[]=array(
             'partner_image'=>'german.png',
