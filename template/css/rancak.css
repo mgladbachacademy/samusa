@@ -187,6 +187,11 @@ a.cover-button{margin-top:var(--size-1); margin-right:var(--size-1); padding-lef
 
 
   .cover-title{font-size:3rem;}
+
+  @media (orientation:portrait){
+    .partner-list{display:grid;}
+    .partner-box{display:flex; justify-content:center;}
+  }
 }
 
 
